@@ -1,6 +1,6 @@
+require('dotenv').config()
 const express=require('express')
 const app=express()
-require('dotenv').config()
 const cookieParser=require('cookie-parser')
 
 
@@ -22,6 +22,6 @@ app.use('/',homeRoute)
 app.use('/chat',isLoggedin,chatRoute)
 
 
-app.listen(process.env.PORT,'192.168.1.38',()=>{
+app.listen(process.env.PORT,()=>{
     console.log('connected on 5000')
 })
