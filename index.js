@@ -22,6 +22,6 @@ app.use('/',homeRoute)
 app.use('/chat',isLoggedin,chatRoute)
 
 
-app.listen(7000,'192.168.1.38',()=>{
+app.listen(process.env.PORT,'192.168.1.38',()=>{
     console.log('connected on 5000')
 })
