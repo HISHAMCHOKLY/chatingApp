@@ -151,6 +151,7 @@
       .then((resp)=>resp.json())
       .then((data)=>{
         if(data.success){
+          document.getElementById('message').value=''
           loadData()
         }
       })
