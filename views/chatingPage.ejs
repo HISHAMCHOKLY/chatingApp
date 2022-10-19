@@ -80,11 +80,10 @@
   }
   let curr
   let temp=0
-  let domain="http://192.168.1.38:4000"
   let cuser=document.getElementById('cuser').value
   let test=document.getElementById('chat-part')
   function loadData(){
-      fetch(domain+'/chat/'+cuser+'/messages',{  
+      fetch('/chat/'+cuser+'/messages',{  
         method:"GET",
         headers:{
           "Content-type":"application/json; charset=UTF-8"
