@@ -22,9 +22,11 @@ exports.register=async(req,res)=>{
     let r_user=await User.findOne({mobNo:mobNum})
     if(!r_user){
         res.send('User Already Exist')
+    }else{
+        await User.create({username:username,password:password,mobNo:mobNum})
+        res.redirect('/login')
     }
-    await User.create({username:username,password:password,mobNo:mobNum})
-    res.redirect('/login')
+
 
 }
 exports.getLogin=(req,res)=>{
