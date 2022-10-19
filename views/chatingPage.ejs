@@ -57,7 +57,7 @@
     </div>
 
     <div class="message-part border mb-2 fixed-bottom">
-      <form action="/chat/<%=cUser.mobNo%>" method="post">
+      <form id="frm">
         <div class="row">
           <div class="col-8"><input type="text" id="message" name="message" style="width: 100%; height: 40px;" oninput="enableBtn()"></div>
           <div class="col-4"><button class="btn btn-success btn-block" id="sbmtbtn" type="submit" disabled >SEND</button></div>
@@ -135,5 +135,25 @@
     setInterval(()=>{
       loadData()
     },3000)
+
+
+    document.getElementById('frm').addEventListener('submit',function(e){
+      let cuser=document.getElementById('cuser').value
+      e.preventDefault()
+      let message=document.getElementById('message').value
+      fetch('/chat/'+cuser,{  
+        method:"POST",
+        body:JSON.stringify({message:message}),
+        headers:{
+          "Content-type":"application/json; charset=UTF-8"
+        }
+      })
+      .then((resp)=>resp.json())
+      .then((data)=>{
+        if(data.success){
+          loadData()
+        }
+      })
+    })
 </script>
 </html>
