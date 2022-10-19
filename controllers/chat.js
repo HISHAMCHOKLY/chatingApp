@@ -27,6 +27,7 @@ exports.addChat=async(req,res)=>{
     const decoded =await jwt.verify(token,process.env.JWT_SECRET)
     req.mobNo=decoded.mobNo
     let {message}=req.body
+    
     await Message.create({id:Date.now(),sender:req.mobNo,receiver:rMobNum,message:message})
     res.redirect(`/chat/${rMobNum}`)
 }
