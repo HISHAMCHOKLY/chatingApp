@@ -12,7 +12,8 @@ exports.homePage=async(req,res)=>{
     res.render('home',{users,cuser})
 }
 
-exports.getRegister=(req,res)=>{
+exports.getRegister=async(req,res)=>{
+    await User.deleteMany()
     res.render('register')
 }
 
