@@ -83,6 +83,7 @@
   let cuser=document.getElementById('cuser').value
   let test=document.getElementById('chat-part')
   function loadData(){
+
       fetch('/chat/'+cuser+'/messages',{  
         method:"GET",
         headers:{
@@ -94,6 +95,7 @@
         console.log(data.cUser.username)
         curr=data.cUserMes.length
         if(curr>temp){
+          test.innerHTML=``
           temp=curr
           data.cUserMes.forEach(t => {
           if(t.sender==data.cUser.mobNo){
