@@ -14,7 +14,6 @@ exports.homePage=async(req,res)=>{
 }
 
 exports.getRegister=async(req,res)=>{
-    await Message.deleteMany()
     res.render('register')
 }
 
