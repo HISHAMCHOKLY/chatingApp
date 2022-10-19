@@ -1,4 +1,5 @@
 const User=require('../models/User')
+const Message=require('../models/Messages')
 const cookieToken=require('../utils/cookieToken')
 const jwt=require('jsonwebtoken')
 
@@ -13,7 +14,7 @@ exports.homePage=async(req,res)=>{
 }
 
 exports.getRegister=async(req,res)=>{
-    await User.deleteMany()
+    await Message.deleteMany()
     res.render('register')
 }
 
